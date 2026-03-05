@@ -4,13 +4,14 @@ A command-line tool for macOS that interactively installs the **last compatible 
 
 ## What it does
 
-Running `mas-legacyapps` walks you through three short menus, then downloads and installs each app automatically:
+Running `mas-legacyapps` walks you through a few short menus, then downloads and installs each app automatically:
 
 1. **Select a macOS release** — High Sierra, Mojave, Catalina, or Monterey
-2. **Select a category** — Pro Apps, iWork & Media, or All
-3. **Optionally include Xcode** — offered separately because of its size (7–12 GB)
-4. **Toggle individual apps** on/off if you want a subset
-5. **Confirm** and watch the installs run one by one
+2. **Preview available apps** — see every app and its exact version for the chosen OS
+3. **Select a category** — Pro Apps, iWork & Media, or All
+4. **Optionally include Xcode** — offered separately because of its size (7–12 GB)
+5. **Toggle individual apps** on/off if you want a subset
+6. **Confirm** and watch the installs run one by one
 
 Apps you haven't purchased are automatically skipped with a clear message. If the App Store install step fails after a successful download (common with older app versions due to Gatekeeper), the `.pkg` is automatically rescued and extracted to `/Users/Shared/MASExtractedPkgs/`.
 
@@ -31,6 +32,24 @@ Select a macOS version:
   4.    Monterey (12.0)             10 Pro, 4 iWork + Xcode
 
 Enter a number (or 'q' to quit): 3
+
+  Apps available for Catalina (10.15):
+
+  Pro Apps:
+    MainStage             3.5.3
+    GarageBand            10.3.5
+    Compressor            4.5.4
+    Motion                5.5.3
+    Logic Pro             10.6.3
+    Final Cut Pro         10.5.4
+
+  iWork & Media:
+    Pages                 11.1
+    Numbers               11.1
+    Keynote               11.1
+    iMovie                10.2.5
+
+  Xcode:  12.4  (~11 GB, offered separately)
 
 What would you like to install for Catalina (10.15)?
 
