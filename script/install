@@ -1,0 +1,25 @@
+#!/bin/bash
+# Builds mas-legacyapps and installs it to /usr/local/bin.
+# Requires sudo if /usr/local/bin is not writable by the current user.
+
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+INSTALL_DIR="/usr/local/bin"
+BINARY_NAME="mas-legacyapps"
+
+echo "Building $BINARY_NAME..."
+swift build --configuration release
+
+BINARY=".build/release/$BINARY_NAME"
+
+if [ -w "$INSTALL_DIR" ]; then
+    cp "$BINARY" "$INSTALL_DIR/$BINARY_NAME"
+else
+    echo "Installing to $INSTALL_DIR (sudo required)..."
+    sudo cp "$BINARY" "$INSTALL_DIR/$BINARY_NAME"
+fi
+
+echo ""
+echo "Installed: $INSTALL_DIR/$BINARY_NAME"
+echo "Run 'mas-legacyapps --help' to get started."

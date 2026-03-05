@@ -1,0 +1,11 @@
+#!/bin/bash
+# Builds mas-legacyapps in release mode.
+# Output: .build/release/mas-legacyapps
+
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+echo "Building mas-legacyapps..."
+swift build --configuration release
+echo ""
+echo "Binary: $(pwd)/.build/release/mas-legacyapps"
