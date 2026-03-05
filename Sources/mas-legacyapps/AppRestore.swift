@@ -136,6 +136,7 @@ struct AppRestore: ParsableCommand {
         printBanner()
 
         let release = try resolveRelease()
+        printReleaseAppPreview(release)
         let categorySelection = try resolveCategorySelection(for: release)
         let xcodeIncluded = try resolveXcode(for: release)
         let candidateApps = applyFilter(release.apps, category: categorySelection, includeXcode: xcodeIncluded)
@@ -207,6 +208,41 @@ struct AppRestore: ParsableCommand {
             }
 
             print("  Please enter a number from 1 to \(LegacyAppCatalog.releases.count).\n")
+        }
+    }
+
+    // MARK: - Release app preview
+
+    private func printReleaseAppPreview(_ release: MacOSRelease) {
+        let proApps   = release.apps.filter { $0.category == .pro }
+        let iWorkApps = release.apps.filter { $0.category == .iWork }
+        let xcodeApp  = release.apps.first  { $0.category == .xcode }
+
+        print()
+        print("  Apps available for \(release.name) (\(release.displayVersion)):")
+        print()
+
+        if !proApps.isEmpty {
+            print("  Pro Apps:")
+            for app in proApps {
+                let name = app.name.padding(toLength: 20, withPad: " ", startingAt: 0)
+                print("    \(name)  \(app.version)")
+            }
+            print()
+        }
+
+        if !iWorkApps.isEmpty {
+            print("  iWork & Media:")
+            for app in iWorkApps {
+                let name = app.name.padding(toLength: 20, withPad: " ", startingAt: 0)
+                print("    \(name)  \(app.version)")
+            }
+            print()
+        }
+
+        if let xcode = xcodeApp {
+            print("  Xcode:  \(xcode.version)  (~\(String(format: "%.0f", xcode.estimatedSizeGB)) GB, offered separately)")
+            print()
         }
     }
 
