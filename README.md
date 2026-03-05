@@ -1,6 +1,6 @@
 # mas-legacyapps
 
-A command-line tool for macOS that interactively installs the **last compatible version** of Apple's Pro and productivity apps for a given macOS release, using App External Version IDs from this repository.
+A command-line tool for macOS that interactively installs the **last compatible version** of Apple's Pro and productivity apps for a given macOS release, using App External Version IDs bundled in this repository.
 
 ## What it does
 
@@ -74,9 +74,9 @@ Proceed? [Y/n]: y
 ### Build from source
 
 ```bash
-# Clone (or add as a subdirectory) this repo
-git clone https://github.com/handyandy87/Pro-Apps-App-External-IDs.git
-cd Pro-Apps-App-External-IDs/mas-legacyapps
+# Clone this repo
+git clone https://github.com/handyandy87/mas-legacyapps.git
+cd mas-legacyapps
 
 # Build (release binary goes to .build/release/mas-legacyapps)
 swift build --configuration release
@@ -206,13 +206,13 @@ Each entry in `LegacyAppCatalog.swift` uses an **App External Version ID** (`app
 
 The IDs are passed as a query parameter in the App Store purchase request, causing the daemon to download that exact version instead of the current one.
 
-See the [App External IDs tables](../README.md) in the parent repository for the full dataset, including how to find missing IDs.
+The IDs are catalogued in `Sources/mas-legacyapps/LegacyAppCatalog.swift`. See the project README for the full dataset and guidance on finding missing IDs.
 
 ---
 
 ## Updating the catalog
 
-When new macOS version data is added to this repository's App External ID tables, update `Sources/mas-legacyapps/LegacyAppCatalog.swift` with the new entries:
+To add support for a new macOS version, update `Sources/mas-legacyapps/LegacyAppCatalog.swift` with the new entries:
 
 ```swift
 MacOSRelease(
@@ -234,8 +234,6 @@ Then rebuild: `swift build --configuration release`.
 
 - **[mas-cli](https://github.com/mas-cli/mas)** — the upstream Mac App Store command-line tool this is built on
 - **[mas-cli-appExtVrsId-patcher](https://github.com/handyandy87/mas-cli-appExtVrsId-patcher)** — the patched fork adding `--ver`, `--lookup`, and package rescue
-- **[Pro-Apps-App-External-IDs](https://github.com/handyandy87/Pro-Apps-App-External-IDs)** — the App External Version ID dataset powering this tool
-
 ---
 
 ## Disclaimer
