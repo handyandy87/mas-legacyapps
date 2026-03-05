@@ -234,6 +234,8 @@ Then rebuild: `swift build --configuration release`.
 
 - **[mas-cli](https://github.com/mas-cli/mas)** — the upstream Mac App Store command-line tool this is built on
 - **[mas-cli-appExtVrsId-patcher](https://github.com/handyandy87/mas-cli-appExtVrsId-patcher)** — the patched fork adding `--ver`, `--lookup`, and package rescue
+- **[Pro-Apps-App-External-IDs](https://github.com/handyandy87/Pro-Apps-App-External-IDs)** — the original source of the App External Version ID dataset
+
 ---
 
 ## Disclaimer
