@@ -6,7 +6,7 @@ A command-line tool for macOS that interactively installs the **last compatible 
 
 Running `mas-legacyapps` walks you through a few short menus, then downloads and installs each app automatically:
 
-1. **Select a macOS release** — High Sierra, Mojave, Catalina, or Monterey
+1. **Select a macOS release** — High Sierra, Mojave, Catalina, Big Sur, Monterey, or Ventura
 2. **Preview available apps** — see every app and its exact version for the chosen OS
 3. **Select a category** — Pro Apps, iWork & Media, or All
 4. **Optionally include Xcode** — offered separately because of its size (7–12 GB)
@@ -29,7 +29,9 @@ Select a macOS version:
   1.    High Sierra (10.13)         10 Pro, 4 iWork
   2.    Mojave (10.14)              10 Pro, 4 iWork + Xcode
   3.    Catalina (10.15)            10 Pro, 4 iWork + Xcode
-  4.    Monterey (12.0)             10 Pro, 4 iWork + Xcode
+  4.    Big Sur (11.0)              10 Pro, 4 iWork + Xcode
+  5.    Monterey (12.0)             10 Pro, 4 iWork + Xcode
+  6.    Ventura (13.0)              10 Pro, 4 iWork + Xcode
 
 Enter a number (or 'q' to quit): 3
 
@@ -132,10 +134,12 @@ Walk through the menus for OS, category, Xcode, and app selection.
 ### Skip the OS selection menu
 
 ```bash
-mas-legacyapps --os catalina
-mas-legacyapps --os monterey
-mas-legacyapps --os mojave
 mas-legacyapps --os highsierra
+mas-legacyapps --os mojave
+mas-legacyapps --os catalina
+mas-legacyapps --os bigsur
+mas-legacyapps --os monterey
+mas-legacyapps --os ventura
 ```
 
 ### Skip the category menu
@@ -188,9 +192,11 @@ mas-legacyapps --delay 0    # no delay (use only for 1–2 apps)
 | High Sierra | 10.13 | FCP 10.4.6, Compressor 4.4.4, Motion 5.4.3, Logic Pro 10.4.8, MainStage 3.4.4, GarageBand 10.3.5 | Keynote 9.1, Numbers 6.1, Pages 8.1, iMovie 10.1.12 | — |
 | Mojave | 10.14 | FCP 10.4.10, Compressor 4.4.8, Motion 5.4.7, Logic Pro 10.5.1, MainStage 3.4.4, GarageBand 10.3.5 | Keynote 10.1, Numbers 10.1, Pages 10.1, iMovie 10.1.14 | 11.3.1 |
 | Catalina | 10.15 | FCP 10.5.4, Compressor 4.5.4, Motion 5.5.3, Logic Pro 10.6.3, MainStage 3.5.3, GarageBand 10.3.5 | Keynote 11.1, Numbers 11.1, Pages 11.1, iMovie 10.2.5 | 12.4 |
+| Big Sur | 11.0 | FCP 10.6.5, Compressor 4.6.3, Motion 5.6.3, Logic Pro 10.7.4, MainStage 3.6.1, GarageBand 10.4.6 | Keynote 12.1, Numbers 12.1, Pages 12.1, iMovie 10.3.5 | 13.2.1 |
 | Monterey | 12.0 | FCP 10.6.8, Compressor 4.6.5, Motion 5.6.5, Logic Pro 10.7.9, MainStage 3.6.4, GarageBand 10.4.8 | Keynote 13.1, Numbers 13.1, Pages 13.1, iMovie 10.3.8 | 14.2 |
+| Ventura | 13.0 | FCP 10.8.1, Compressor 4.8, Motion 5.8, Logic Pro 11.0.1, MainStage 3.6.6, GarageBand 10.4.11 | Keynote 14.1, Numbers 14.1, Pages 14.1, iMovie 10.4.2 | 15.2 |
 
-> Big Sur (11), Ventura (13), Sonoma (14), and Sequoia (15) data is not yet available.
+> Sonoma (14) and Sequoia (15) data is not yet available.
 > Contributions welcome — see the App External IDs tables in this repository.
 
 ---
@@ -235,9 +241,9 @@ To add support for a new macOS version, update `Sources/mas-legacyapps/LegacyApp
 
 ```swift
 MacOSRelease(
-    name: "Big Sur",
-    shortName: "bigsur",
-    displayVersion: "11.0",
+    name: "Sonoma",
+    shortName: "sonoma",
+    displayVersion: "14.0",
     apps: [
         LegacyApp(name: "Keynote", appID: 409183694, appExtVrsId: <id>, version: "<ver>", category: .iWork, estimatedSizeGB: 0.3),
         // ...
