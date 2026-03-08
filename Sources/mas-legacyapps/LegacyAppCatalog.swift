@@ -57,8 +57,8 @@ struct MacOSRelease {
 ///
 /// Data sourced from https://github.com/handyandy87/Pro-Apps-App-External-IDs
 ///
-/// - Note: Big Sur (11), Ventura (13), Sonoma (14), and Sequoia (15) entries are
-///   not yet available in the source data and are therefore absent here.
+/// - Note: Sonoma (14) and Sequoia (15) entries are not yet available in the
+///   source data and are therefore absent here.
 enum LegacyAppCatalog {
     static let releases: [MacOSRelease] = [
         MacOSRelease(
@@ -123,6 +123,27 @@ enum LegacyAppCatalog {
             ]
         ),
         MacOSRelease(
+            name: "Big Sur",
+            shortName: "bigsur",
+            displayVersion: "11.0",
+            apps: [
+                // iWork & Media — smallest first
+                LegacyApp(name: "Keynote",        appID: 409183694, appExtVrsId: 849061515, version: "12.1",    category: .iWork, estimatedSizeGB: 0.3),
+                LegacyApp(name: "Numbers",        appID: 409203825, appExtVrsId: 849061552, version: "12.1",    category: .iWork, estimatedSizeGB: 0.3),
+                LegacyApp(name: "Pages",          appID: 409201541, appExtVrsId: 849061576, version: "12.1",    category: .iWork, estimatedSizeGB: 0.3),
+                LegacyApp(name: "iMovie",         appID: 408981434, appExtVrsId: 852712455, version: "10.3.5",  category: .iWork, estimatedSizeGB: 0.5),
+                // Pro Apps — smallest first
+                LegacyApp(name: "MainStage",      appID: 634159523, appExtVrsId: 847783103, version: "3.6.1",   category: .pro,   estimatedSizeGB: 0.5),
+                LegacyApp(name: "Compressor",     appID: 424390742, appExtVrsId: 852333341, version: "4.6.3",   category: .pro,   estimatedSizeGB: 0.5),
+                LegacyApp(name: "Logic Pro",      appID: 634148309, appExtVrsId: 848436302, version: "10.7.4",  category: .pro,   estimatedSizeGB: 1.3),
+                LegacyApp(name: "GarageBand",     appID: 682658836, appExtVrsId: 845961416, version: "10.4.6",  category: .pro,   estimatedSizeGB: 1.5),
+                LegacyApp(name: "Motion",         appID: 434290957, appExtVrsId: 852333300, version: "5.6.3",   category: .pro,   estimatedSizeGB: 3.0),
+                LegacyApp(name: "Final Cut Pro",  appID: 424389933, appExtVrsId: 852332983, version: "10.6.5",  category: .pro,   estimatedSizeGB: 3.5),
+                // Xcode — always separate
+                LegacyApp(name: "Xcode",          appID: 497799835, appExtVrsId: 845961054, version: "13.2.1",  category: .xcode, estimatedSizeGB: 11.0),
+            ]
+        ),
+        MacOSRelease(
             name: "Monterey",
             shortName: "monterey",
             displayVersion: "12.0",
@@ -141,6 +162,27 @@ enum LegacyAppCatalog {
                 LegacyApp(name: "Final Cut Pro",  appID: 424389933, appExtVrsId: 858759812, version: "10.6.8",  category: .pro,   estimatedSizeGB: 3.5),
                 // Xcode
                 LegacyApp(name: "Xcode",          appID: 497799835, appExtVrsId: 853602198, version: "14.2",    category: .xcode, estimatedSizeGB: 12.0),
+            ]
+        ),
+        MacOSRelease(
+            name: "Ventura",
+            shortName: "ventura",
+            displayVersion: "13.0",
+            apps: [
+                // iWork & Media — smallest first
+                LegacyApp(name: "Keynote",        appID: 409183694, appExtVrsId: 866313349, version: "14.1",    category: .iWork, estimatedSizeGB: 0.3),
+                LegacyApp(name: "Numbers",        appID: 409203825, appExtVrsId: 866313351, version: "14.1",    category: .iWork, estimatedSizeGB: 0.3),
+                LegacyApp(name: "Pages",          appID: 409201541, appExtVrsId: 866313353, version: "14.1",    category: .iWork, estimatedSizeGB: 0.3),
+                LegacyApp(name: "iMovie",         appID: 408981434, appExtVrsId: 867747307, version: "10.4.2",  category: .iWork, estimatedSizeGB: 0.5),
+                // Pro Apps — smallest first
+                LegacyApp(name: "MainStage",      appID: 634159523, appExtVrsId: 861312988, version: "3.6.6",   category: .pro,   estimatedSizeGB: 0.5),
+                LegacyApp(name: "Compressor",     appID: 424390742, appExtVrsId: 861999753, version: "4.8",     category: .pro,   estimatedSizeGB: 0.5),
+                LegacyApp(name: "Logic Pro",      appID: 634148309, appExtVrsId: 865964375, version: "11.0.1",  category: .pro,   estimatedSizeGB: 1.3),
+                LegacyApp(name: "GarageBand",     appID: 682658836, appExtVrsId: 862757097, version: "10.4.11", category: .pro,   estimatedSizeGB: 1.5),
+                LegacyApp(name: "Motion",         appID: 434290957, appExtVrsId: 861999886, version: "5.8",     category: .pro,   estimatedSizeGB: 3.0),
+                LegacyApp(name: "Final Cut Pro",  appID: 424389933, appExtVrsId: 867747287, version: "10.8.1",  category: .pro,   estimatedSizeGB: 3.5),
+                // Xcode — always separate
+                LegacyApp(name: "Xcode",          appID: 497799835, appExtVrsId: 862131722, version: "15.2",    category: .xcode, estimatedSizeGB: 13.0),
             ]
         ),
     ]

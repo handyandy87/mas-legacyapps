@@ -66,7 +66,9 @@ Private frameworks are linked via `unsafeFlags` in Package.swift with `-I Source
 | High Sierra   | highsierra  | 10.13   | 4            | 6        | —      |
 | Mojave        | mojave      | 10.14   | 4            | 6        | 11.3.1 |
 | Catalina      | catalina    | 10.15   | 4            | 6        | 12.4   |
+| Big Sur       | bigsur      | 11.0    | 4            | 6        | 13.2.1 |
 | Monterey      | monterey    | 12.0    | 4            | 6        | 14.2   |
+| Ventura       | ventura     | 13.0    | 4            | 6        | 15.2   |
 
 Apps within each release are ordered smallest-to-largest estimated download size to give users quick wins early in an install session.
 
